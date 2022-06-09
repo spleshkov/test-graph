@@ -1,0 +1,51 @@
+body {
+  background-color: #233142;
+  color: #e3e3e3;
+  font-family: "PT Sans", sans-serif;
+}
+
+h3.underlined {
+  margin-bottom: 5px;
+}
+
+.centered-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-container-column {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  gap: 5px;
+}
+
+.flex-container > div {
+  padding: 8px;
+}
+
+.flex-container-row {
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  gap: 5px;
+}
+
+.column-one {
+  /* flex:3 1 auto; */
+  flex-grow: 3;
+}
+
+.column-two {
+  /* flex:1 1 auto; */
+  flex-grow: 1;
+}
+
+.task-in-queue {
+  font-weight: 700;
+}
+
+.aws-btn--primary .aws-btn__content {
+  font-size: 1.4em;
+}

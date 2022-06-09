@@ -1,0 +1,61 @@
+version: "3.7"
+
+services:
+  app:
+    build: app
+    container_name: django-gunicorn
+    restart: always
+    env_file:
+      - django.env
+    ports:
+      - "8000:8000"
+    command: "gunicorn --workers=2 --bind=0.0.0.0:8000 mysite.wsgi:application"
+    networks:
+      - live
+
+  app-socket:
+    build: app
+    container_name: django-sockets
+    restart: always
+    env_file:
+      - django.env
+    ports:
+      - "8001:8001"
+    command: "daphne -b 0.0.0.0 -p 8001 mysite.asgi:application"
+    networks:
+      - live
+
+  frontend:
+    container_name: react-app
+    image: frontend:custom
+    build: frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    command: serve -s /usr/src/app/build -l 3000
+    depends_on:
+      - app
+      - app-socket
+    networks:
+      - live
+
+  nginx:
+    image: nginx:1.17
+    container_name: ngx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    depends_on:
+      - app
+      - app-socket
+    networks:
+      - live
+
+  redis:
+    image: "redis:alpine"
+    hostname: redis
+    networks:
+      - live
+networks:
+  live:
