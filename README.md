@@ -1,5 +1,5 @@
 # Концептуальное решение задачи с графиком.
-<img src="https://github.com/spleshkov/test-graph/blob/master/Screenshot.png" width=1200 align=right>.  
+<img src="https://github.com/spleshkov/test-graph/blob/master/Screenshot.png" width=1200 align=right>   
 <br />
 Насколько я понял из описания задача больше на frontend, поэтому основная логика там.
 Управление очередью заданий реализовано так же на клиенте, сохранения очереди нет, можно реализовать через localStorage.
