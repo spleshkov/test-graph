@@ -18,3 +18,6 @@
 * Tasks Queue - текущая очередь заданий.
 * Tasks In Progress - какая задача выполняется в данный момент.
 * Done Tasks - выполненные задачи.
+
+
+https://user-images.githubusercontent.com/4176879/172840168-a1328e94-2b4d-429c-befc-17a4f77f0c9c.mov
